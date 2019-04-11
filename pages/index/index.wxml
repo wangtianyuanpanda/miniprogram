@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{ !showCities }}">
+  <!--<view class="userinfo">-->
+    <!--<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>-->
+    <!--<block wx:else>-->
+      <!--<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>-->
+      <!--<text class="userinfo-nickname">{{userInfo.nickName}}</text>-->
+    <!--</block>-->
+  <!--</view>-->
+  <!--<view class="usermotto">-->
+    <!--<text class="user-motto">{{motto}}</text>-->
+      <!--</view>-->
+    <image src="../../assets/backgroundImg.JPG" class="background-image"></image>
+    <view class="main-container">
+        <text class="main-title">{{ mainTitle }}</text>
+        <cover-view class="main-title" style="font-size: 50rpx; text-align: center" bindtap="toggleCity">@{{ titleLocation }}</cover-view>
+        <view class="enter-con">
+             <i-icon type="enterinto" size="70" color="#ffffff" />
+        </view>
+        <cover-view class="author-con">{{ author }}</cover-view>
+    </view>
+</view>
+<view class="i-index-demo" wx:if="{{ showCities }}">
+    <i-index height="100%">
+        <i-index-item
+                wx:for="{{ cities }}"
+                wx:for-index="index"
+                wx:key="{{index}}"
+                wx:for-item="item" name="{{item.key}}">
+            <view
+                    class="i-index-demo-item"
+                    wx:for="{{item.list}}"
+                    wx:for-index="in"
+                    wx:key="{{in}}"
+                    wx:for-item="it"
+                    bindtap="onCityChange"
+                    data-name="{{it.name}}">
+                {{it.name}}
+            </view>
+        </i-index-item>
+    </i-index>
+    <i-button class="float-btn" bindtap="toggleCity"><i-icon size="20" type="undo" color="#fff"/></i-button>
+</view>
+

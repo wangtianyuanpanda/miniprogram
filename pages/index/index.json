@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-icon": "../../static/iview/icon/index",
+    "i-index": "../../static/iview/index/index",
+    "i-index-item": "../../static/iview/index-item/index",
+    "i-action-sheet": "../../static/iview/action-sheet/index"
+  }
+}
